@@ -1,0 +1,9 @@
+https://pimylifeup.com/raspberry-pi-plex-server/
+
+https://pimylifeup.com/raspberry-pi-samba/
+
+https://pimylifeup.com/raspberry-pi-mount-usb-drive/
+
+https://www.pivpn.io/
+
+curl -L https://install.pivpn.io | bash
