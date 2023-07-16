@@ -18,8 +18,8 @@ bash pivpn/auto_install/install.sh
 ```
 
 Config:
-VPN Protocol: WireGuard
-DNS: Google DNS
+- **VPN Protocol**: WireGuard
+- **DNS**: Google DNS
 
 ## DNS Filter: Pihole
 
@@ -30,6 +30,15 @@ cd "Pi-hole/automated install/"
 sudo bash basic-install.sh
 ```
 
-Plex
-Sonarr
-NAS
+## Media Library: Plex
+
+Initialise Repository Script:
+```Shell
+https://github.com/CheeseLad/homelab/blob/main/scripts/plex-add-repo.sh
+``` 
+## Sonarr
+## NAS
+## Android: FolderSync
+[Google Play Link](https://play.google.com/store/apps/details?id=dk.tacit.android.foldersync.lite&hl=en_IE&gl=US)
+## iOS: PhotoSync
+[App Store Link](https://apps.apple.com/us/app/photosync-transfer-photos/id415850124)
