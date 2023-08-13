@@ -8,6 +8,14 @@ Planning to migrate everything to docker and have documentation here,
 Software & Utilities:
 ----
 
+## Hard Drive: Samba
+
+```Shell
+sudo apt-get install samba samba-common-bin
+sudo nano /etc/samba/smb.conf
+sudo smbpasswd -a pi
+```
+
 ## VPN: PiVPN
 
 Currently I am using PiVPN to connect my laptop and mobile devices to my homelab. Can be easily installed with the following command:
