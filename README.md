@@ -8,11 +8,23 @@ Planning to migrate everything to docker and have documentation here,
 Software & Utilities:
 ----
 
+## Starting Off: Update System
+
+```Shell
+sudo apt-get update
+sudo apt-get upgrade
+```
+
 ## Hard Drive: Samba
 
 ```Shell
 sudo apt-get install samba samba-common-bin
 sudo nano /etc/samba/smb.conf
+```
+
+Load saved shares from file
+
+```Shell
 sudo smbpasswd -a pi
 ```
 
@@ -39,6 +51,18 @@ sudo bash basic-install.sh
 ```
 
 ## Media Library: Plex
+
+```Shell
+sudo apt-get install apt-transport-https
+
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | gpg --dearmor | sudo tee /usr/share/keyrings/plex-archive-keyring.gpg >/dev/null
+
+echo deb [signed-by=/usr/share/keyrings/plex-archive-keyring.gpg] https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+
+sudo apt-get update
+
+sudo apt install plexmediaserver
+```
 
 Initialise Repository Script:
 ```Shell
