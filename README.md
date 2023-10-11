@@ -26,6 +26,7 @@ Load saved shares from file
 
 ```Shell
 sudo smbpasswd -a pi
+sudo systemctl restart smbd
 ```
 
 ## VPN: PiVPN
