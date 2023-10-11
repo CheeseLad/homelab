@@ -22,6 +22,21 @@ sudo apt-get install samba samba-common-bin
 sudo nano /etc/samba/smb.conf
 ```
 
+Mounting Drive
+```Shell
+sudo apt install ntfs-3g
+sudo mkdir -p /mnt/usb1
+sudo chown -R pi:pi /mnt/usb1
+sudo nano /etc/fstab
+```
+
+Add in stored drive information
+
+```Shell
+sudo umount /dev/sda1
+sudo mount -a
+```
+
 Load saved shares from file
 
 ```Shell
@@ -34,8 +49,7 @@ sudo systemctl restart smbd
 Currently I am using PiVPN to connect my laptop and mobile devices to my homelab. Can be easily installed with the following command:
 
 ```Shell
-git clone https://github.com/pivpn/pivpn.git
-bash pivpn/auto_install/install.sh
+curl -L https://install.pivpn.io | bash
 ```
 
 Config:
