@@ -1,12 +1,16 @@
 # homelab
-My homelab setup
+CheeseLad's Homelab Setup
+
+Currently running everything on a Raspberry Pi 2 Model B
+
+Planned Services:
+- Personal Website Hosting
+- HedgeDoc (CodiMD)
+- PhotoPrism (With new hardware)
+- [zipline](https://github.com/diced/zipline)
 
 
-
-Planning to migrate everything to docker and have documentation here,
-
-Software & Utilities:
-----
+# Software & Utilities:
 
 ## Starting Off: Update System
 
@@ -61,6 +65,11 @@ Config:
 ```Shell
 curl -sSL https://install.pi-hole.net | bash
 ```
+Config:
+- **DNS**: Google DNS
+
+Access:
+- Pi-hole can be accessed here (locally): [http://raspberrypi.local/admin/login.php](http://raspberrypi.local/admin/login.php)
 
 ## Media Library: Plex
 
@@ -76,13 +85,9 @@ sudo apt-get update
 sudo apt install plexmediaserver
 ```
 
-Initialise Repository Script:
-```Shell
-https://github.com/CheeseLad/homelab/blob/main/scripts/plex-add-repo.sh
-``` 
-## Sonarr
-## NAS
-## Android: FolderSync
-[Google Play Link](https://play.google.com/store/apps/details?id=dk.tacit.android.foldersync.lite&hl=en_IE&gl=US)
-## iOS: PhotoSync
-[App Store Link](https://apps.apple.com/us/app/photosync-transfer-photos/id415850124)
+Access :
+- Plex can be accessed here (locally): [http://raspberrypi.local:32400/web/index.html](http://raspberrypi.local:32400/web/index.html)
+
+## Photo Backup
+- Android: [FolderSync](https://play.google.com/store/apps/details?id=dk.tacit.android.foldersync.lite&hl=en_IE&gl=US)
+- iOS: [PhotoSync](https://apps.apple.com/us/app/photosync-transfer-photos/id415850124)
