@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  overseerr:
+    image: sctx/overseerr:latest
+    container_name: overseerr
+    hostname: overseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/Dublin
+      - PORT=5055
+    ports:
+      - 5055:5055
+    volumes:
+      - /home/jake/services/overseerr/config:/app/config
+    restart: unless-stopped

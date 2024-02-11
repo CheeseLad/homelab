@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  minecraft-vanilla:
+    image: itzg/minecraft-server
+    container_name: minecraft-vanilla
+    hostname: minecraft-vanilla
+    environment:
+      EULA: "true"
+    ports:
+      - "25565:25565"
+    volumes:
+      - /home/jake/services/minecraft-vanilla/data:/data
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+volumes:
+  data: {}

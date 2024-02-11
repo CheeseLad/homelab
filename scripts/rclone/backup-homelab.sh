@@ -1,0 +1,1 @@
+rclone copy "/home/jake" "G-Crypt:/CheeseLab/home/jake" -v --bwlimit 2M --config /home/jake/scripts/rclone/rclone.conf --exclude-from /home/jake/scripts/rclone/filter.txt --log-file "/home/jake/scripts/rclone/backup-homelab.log"

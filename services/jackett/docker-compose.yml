@@ -1,0 +1,17 @@
+services:
+  jackett:
+    container_name: jackett
+    hostname: jackett
+    image: linuxserver/jackett
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - AUTO_UPDATE=true
+    ports:
+      - 9117:9117
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/jake/services/jackett/config:/config
+      - /home/jake/downloads:/downloads

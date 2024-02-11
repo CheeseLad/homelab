@@ -33,3 +33,4 @@ mediamtx
 .selected_editor
 .sudo_as_admin_successful
 .wget-hsts
+.gitconfig
