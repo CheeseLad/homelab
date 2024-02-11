@@ -1,5 +1,43 @@
-# homelab
-CheeseLad's Homelab Setup
+# CheeseLad's Homelab Setup
+
+## Introduction
+
+My homelab consists of a Dell Optiplex 5060 running Debian 12 that was saved from an e-waste bin in my college. I have been using it to host various services and applications that I use on a daily basis. Configs for many of these services can be found in the `services` directory.
+
+### Specs
+
+- **CPU**: Intel Core i3-8100
+- **RAM**: 4GB DDR4 2400MHz
+- **Storage**: 3TB Total Storage (256GB NVMe SSD, 750GB HDD, 2TB HDD)
+
+
+## Services (Docker)
+
+- [Homepage](https://gethomepage.dev/latest/)
+
+- [Jackett]()
+- [Vanilla Minecraft Server](https://docker-minecraft-server.readthedocs.io/en/latest/)
+- [Overseerr](https://overseerr.dev/)
+- [PhotoPrism](https://photoprism.app/)
+- [Pihole](https://pi-hole.net/)
+- [Plex](https://www.plex.tv/)
+- [Qbittorrent](https://www.qbittorrent.org/)
+- [Radarr](https://radarr.video/)
+- [Sonarr](https://sonarr.tv/)
+- [Speedtest-Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker)
+- [The Experiement (My Discord Bot)](https://github.com/CheeseLad/the-experiment/)
+- [Uptime Kuma](https://github.com/louislam/uptime-kuma)
+
+## Services (Native)
+
+- [PiVPN](https://www.pivpn.io/)
+- [Samba](https://www.samba.org/)
+- [Rclone](https://rclone.org/)
+
+
+
+
+## Old Readme (Raspberry Pi)
 
 Currently running everything on a Raspberry Pi 2 Model B
 
