@@ -34,3 +34,7 @@ mediamtx
 .sudo_as_admin_successful
 .wget-hsts
 .gitconfig
+server
+scripts/cable-sql-backup/login.py
+services/photoprism/docker-compose.yml
+services/pi-hole/docker-compose.yml
