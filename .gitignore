@@ -38,3 +38,4 @@ server
 scripts/cable-sql-backup/login.py
 services/photoprism/docker-compose.yml
 services/pi-hole/docker-compose.yml
+.dotnet
