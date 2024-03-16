@@ -1,0 +1,14 @@
+services:
+  tautulli:
+    container_name: tautulli
+    hostname: tautulli
+    image: tautulli/tautulli
+    restart: unless-stopped
+    volumes:
+      - /home/jake/services/tautulli/config:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 8181:8181
