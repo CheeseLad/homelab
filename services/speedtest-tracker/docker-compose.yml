@@ -19,3 +19,13 @@ services:
                 max-file: "10"
                 max-size: "200k"
         restart: unless-stopped
+
+        labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.speedtest-tracker.entrypoints=https"
+        - "traefik.http.routers.speedtest-tracker.rule=Host(`speedtest.local.jakefarrell.ie`)"
+
+networks:
+  default:
+    external:
+      name: traefik_net

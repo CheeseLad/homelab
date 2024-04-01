@@ -5,9 +5,15 @@ services:
     container_name: homepage
     hostname: homepage
     restart: unless-stopped
-    ports:
-      - 80:3000
     volumes:
       - /home/jake/services/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/jake/services/homepage/images:/app/public/images
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.entrypoints=https"
+      - "traefik.http.routers.homepage.rule=Host(`local.jakefarrell.ie`)"
+networks:
+  default:
+    external:
+      name: traefik_net
