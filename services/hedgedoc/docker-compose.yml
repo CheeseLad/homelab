@@ -1,0 +1,36 @@
+version: '3'
+services:
+  hedgedoc-database:
+    image: postgres:13.4-alpine
+    hostname: hedgedoc-database
+    container_name: hedgedoc-database
+    environment:
+      - POSTGRES_USER=hedgedoc
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DB=hedgedoc
+    volumes:
+      - database:/var/lib/postgresql/data
+    restart: unless-stopped
+  hedgedoc:
+    image: quay.io/hedgedoc/hedgedoc:latest
+    hostname: hedgedoc
+    container_name: hedgedoc
+    environment:
+      - CMD_DB_URL=$CMD_DB_URL
+      - CMD_DOMAIN=192.168.1.3
+      - CMD_URL_ADDPORT=true
+      - CMD_IMAGE_UPLOAD_TYPE=filesystem
+      - CMD_IMAGE_UPLOAD_PATH=/hedgedoc/public/uploads
+      - CMD_EMAIL=true
+      - CMD_ALLOW_EMAIL_REGISTER=true
+
+    volumes:
+      - ./uploads:/hedgedoc/public/uploads
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - hedgedoc-database
+volumes:
+  database:
+  uploads:
