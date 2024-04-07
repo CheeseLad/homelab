@@ -40,3 +40,4 @@ services/photoprism/database
 .dotnet
 traefik
 bitwarden
+services/vaultwarden/config.json
