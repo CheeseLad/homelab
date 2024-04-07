@@ -36,8 +36,6 @@ mediamtx
 .gitconfig
 server
 scripts/cable-sql-backup/login.py
-services/photoprism/docker-compose.yml
 services/photoprism/database
-services/pi-hole/docker-compose.yml
 .dotnet
 traefik
