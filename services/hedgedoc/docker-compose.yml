@@ -16,12 +16,13 @@ services:
     container_name: hedgedoc
     environment:
       - CMD_DB_URL=$CMD_DB_URL
-      - CMD_DOMAIN=192.168.1.3
-      - CMD_URL_ADDPORT=true
+      - CMD_DOMAIN=$CMD_DOMAIN
       - CMD_IMAGE_UPLOAD_TYPE=filesystem
       - CMD_IMAGE_UPLOAD_PATH=/hedgedoc/public/uploads
       - CMD_EMAIL=true
       - CMD_ALLOW_EMAIL_REGISTER=true
+      - CMD_PROTOCOL_USESSL=true
+      - CMD_SESSION_SECRET=$CMD_SESSION_SECRET
 
     volumes:
       - ./uploads:/hedgedoc/public/uploads

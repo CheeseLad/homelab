@@ -8,8 +8,10 @@ services:
       VERSION: "win11"
       RAM_SIZE: "8G"
       CPU_CORES: "3"
+      GPU: "Y"
     devices:
       - /dev/kvm
+      - /dev/dri
     cap_add:
       - NET_ADMIN
     ports:

@@ -10,7 +10,7 @@ services:
       - WEBUI_PORT=3001
     volumes:
       - /home/jake/services/qbittorrent/config:/config
-      - /home/jake/downloads:/downloads
+      - /home/jake/downloads/qbittorrent:/downloads
     ports:
       - 3001:3001
       - 6881:6881
