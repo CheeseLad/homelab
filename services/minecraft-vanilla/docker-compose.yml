@@ -1,0 +1,17 @@
+services:
+  minecraft-vanilla:
+    image: itzg/minecraft-server
+    hostname: minecraft-vanilla
+    container_name: minecraft-vanilla
+    environment:
+      EULA: "true"
+    ports:
+      - "25565:25565/udp"
+      - "25565:25565/tcp"
+    volumes:
+      - ./data:/data
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+volumes:
+  data: {}
