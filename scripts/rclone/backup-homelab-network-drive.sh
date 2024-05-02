@@ -1,0 +1,1 @@
+rclone copy "/mnt/usb1/Photos & Videos" "DCU-GCrypt-2024:/Network Drive/Photos & Videos" -v --bwlimit 2M --config /home/jake/scripts/rclone/rclone.conf --exclude-from /home/jake/scripts/rclone/filter.txt --log-file "/home/jake/scripts/rclone/backup-homelab-network-drive.log"

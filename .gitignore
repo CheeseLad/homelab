@@ -41,3 +41,4 @@ services/photoprism/database
 traefik
 bitwarden
 services/vaultwarden/config.json
+services/wordpress-dcumps

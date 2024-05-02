@@ -12,7 +12,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.entrypoints=https"
       - "traefik.http.routers.homepage.rule=Host(`local.jakefarrell.ie`)"
+
 networks:
   default:
-    external:
-      name: traefik_net
+    name: traefik_net
+    external: true
