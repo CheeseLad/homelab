@@ -1,6 +1,6 @@
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
+    image: lscr.io/linuxserver/qbittorrent:4.6.0
     container_name: qbittorrent
     hostname: qbittorrent
     environment:
@@ -8,9 +8,10 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - WEBUI_PORT=3001
+      - TORRENTING_PORT=6881
     volumes:
-      - /home/jake/services/qbittorrent/config:/config
-      - /home/jake/downloads/qbittorrent:/downloads
+      - ~/storage/qbittorrent:/config
+      - ~/downloads/qbittorrent:/downloads
     ports:
       - 3001:3001
       - 6881:6881

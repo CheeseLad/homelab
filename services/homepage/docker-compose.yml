@@ -5,9 +5,9 @@ services:
     hostname: homepage
     restart: unless-stopped
     volumes:
-      - /home/jake/services/homepage/config:/app/config
+      - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/jake/services/homepage/images:/app/public/images
+      - ./images:/app/public/images
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homepage.entrypoints=https"

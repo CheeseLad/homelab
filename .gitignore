@@ -2,6 +2,7 @@
 .config
 .docker
 .local
+.rest-client
 .ssh
 .vscode-server
 .configs
@@ -39,6 +40,5 @@ scripts/cable-sql-backup/login.py
 services/photoprism/database
 .dotnet
 traefik
-bitwarden
-services/vaultwarden/config.json
-services/wordpress-dcumps
+*.zip
+unused

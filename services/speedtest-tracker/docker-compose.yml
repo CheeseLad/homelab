@@ -20,9 +20,9 @@ services:
         restart: unless-stopped
 
         labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.speedtest-tracker.entrypoints=https"
-        - "traefik.http.routers.speedtest-tracker.rule=Host(`speedtest.local.jakefarrell.ie`)"
+            - "traefik.enable=true"
+            - "traefik.http.routers.speedtest-tracker.entrypoints=https"
+            - "traefik.http.routers.speedtest-tracker.rule=Host(`speedtest.local.jakefarrell.ie`)"
 
 networks:
   default:
