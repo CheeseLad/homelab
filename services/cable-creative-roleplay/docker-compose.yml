@@ -1,14 +1,27 @@
 services:
-  cable-creative-roleplay:
-    container_name: cable-creative-roleplay
-    hostname: cable-creative-roleplay
-    image: imperialplugins/unturned
-    restart: unless-stopped
-    environment:
-      - SERVER_TYPE=rm4
-    ports:
-      - 27015:27015/udp
-      - 27016:27016/udp
-      - 27017:27017/udp
+  unturned_update:
+    container_name: cable-creative-roleplay-update
+    image: steamcmd/steamcmd:ubuntu-22
     volumes:
-      - ./data:/home/steam/Unturned
+      - ~/storage/cable-creative-roleplay:/app
+    command: [
+      "+force_install_dir", "/app",
+      "+login", "anonymous",
+      "+app_update", "1110390",
+      "validate",
+      "+quit"
+    ]
+  unturned_srv:
+    container_name: cable-creative-roleplay
+    build:
+      context: .
+    volumes:
+      - ~/storage/cable-creative-roleplay:/app
+    ports:
+      - 27015-27016:27015-27016/udp
+    stdin_open: true
+      #equivalent to docker run -i
+    tty: true
+      #equivalent to docker run -t
+    restart: unless-stopped
+    command: +secureserver/unturned

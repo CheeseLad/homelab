@@ -10,8 +10,8 @@ services:
       - WEBUI_PORT=3001
       - TORRENTING_PORT=6881
     volumes:
-      - ~/storage/qbittorrent:/config
-      - ~/downloads/qbittorrent:/downloads
+      - ~/storage/qbittorrent/config:/config
+      - ~/storage/qbittorrent/downloads:/downloads
     ports:
       - 3001:3001
       - 6881:6881

@@ -5,15 +5,8 @@ services:
     hostname: homepage
     restart: unless-stopped
     volumes:
-      - ./config:/app/config
+      - ~/storage/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./images:/app/public/images
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.homepage.entrypoints=https"
-      - "traefik.http.routers.homepage.rule=Host(`local.jakefarrell.ie`)"
-
-networks:
-  default:
-    name: traefik_net
-    external: true
+      - ~/storage/homepage/images:/app/public/images
+    ports:
+      - "3231:3000"

@@ -25,7 +25,7 @@ services:
       - CMD_SESSION_SECRET=$CMD_SESSION_SECRET
 
     volumes:
-      - ./uploads:/hedgedoc/public/uploads
+      - ~/storage/hedgedoc/uploads:/hedgedoc/public/uploads
     ports:
       - "3000:3000"
     restart: unless-stopped

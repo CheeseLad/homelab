@@ -13,5 +13,5 @@ services:
       - 9117:9117
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /home/jake/services/jackett/config:/config
-      - /home/jake/downloads:/downloads
+      - ~/storage/jackett:/config/Jackett
+      - ~/storage/qbittorrent/downloads:/downloads

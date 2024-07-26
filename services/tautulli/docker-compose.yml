@@ -1,7 +1,6 @@
 services:
   tautulli:
     container_name: tautulli
-    hostname: tautulli
     image: tautulli/tautulli
     restart: unless-stopped
     volumes:

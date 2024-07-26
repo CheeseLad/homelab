@@ -46,8 +46,8 @@ services:
       PHOTOPRISM_SITE_AUTHOR: "CheeseLad"
     working_dir: "/photoprism"
     volumes:
-      - "~/Pictures:/photoprism/originals"
-      - "./storage:/photoprism/storage"
+      - "~/storage/photoprism/Pictures:/photoprism/originals"
+      - "./storage/photoprism:/photoprism/storage"
       - "/mnt/usb1/Photos & Videos/ME173X:/photoprism/originals/me173x"
       - "/mnt/usb1/Photos & Videos/Xperia XA:/photoprism/originals/xperia-xa"
       - "/mnt/usb1/Photos & Videos/Jake’s iPhone 13 Pro:/photoprism/originals/jakes-iphone-13-pro"
