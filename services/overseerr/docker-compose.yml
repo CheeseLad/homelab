@@ -10,5 +10,5 @@ services:
     ports:
       - 5055:5055
     volumes:
-      - /home/jake/services/overseerr/config:/app/config
+      - /home/jake/storage/overseerr:/app/config
     restart: unless-stopped

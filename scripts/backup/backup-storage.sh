@@ -6,6 +6,7 @@ FOLDERS_TO_ARCHIVE=(
   "/home/jake/storage/hedgedoc"
   "/home/jake/storage/homepage"
   "/home/jake/storage/jackett"
+  "/home/jake/storage/overseerr"
   "/home/jake/storage/photoprism"
   "/home/jake/storage/qbittorrent"
   "/home/jake/storage/vaultwarden"
@@ -40,6 +41,20 @@ archive_folder() {
   echo "Successfully archived '$FOLDER_TO_ARCHIVE' to '${BACKUP_FOLDER}/${ARCHIVE_NAME}'"
 }
 
+cleanup_old_backups() {
+  FOLDER_NAME="$(basename "$1")"
+  BACKUP_FOLDER="${BACKUP_DIR}/${FOLDER_NAME}"
+
+  find "$BACKUP_FOLDER" -type f -name "*.tar.gz" -mtime +7 -exec rm -f {} \;
+  if [ $? -ne 0 ]; then
+    echo "Error: Failed to clean up old backups in '$BACKUP_FOLDER'."
+    return 1
+  fi
+
+  echo "Old backups in '$BACKUP_FOLDER' have been cleaned up."
+}
+
 for FOLDER in "${FOLDERS_TO_ARCHIVE[@]}"; do
   archive_folder "$FOLDER"
+  cleanup_old_backups "$FOLDER"
 done
