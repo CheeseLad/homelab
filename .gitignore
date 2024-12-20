@@ -12,7 +12,7 @@ storage
 unused
 .bash_history
 .wget-hsts
-
+configs
 services/photoprism/database
 config
 appdata
