@@ -26,4 +26,4 @@ rclone.conf
 *.txt
 *.log
 backup-wordpress-dcumps.sh
-services/pterodactyl
+backup-database.sh

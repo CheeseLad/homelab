@@ -13,11 +13,11 @@ services:
     ports:
       - "8545:8000"
     volumes:
-      - ./config/data:/usr/src/paperless/data
-      - ./config/media:/usr/src/paperless/media
-      - ./config/export:/usr/src/paperless/export
-      - ./config/consume:/usr/src/paperless/consume
-    env_file: docker-compose.env
+      - ~/storage/paperless-ngx/config/data:/usr/src/paperless/data
+      - ~/storage/paperless-ngx/config/media:/usr/src/paperless/media
+      - ~/storage/paperless-ngx/config/export:/usr/src/paperless/export
+      - ~/storage/paperless-ngx/config/consume:/usr/src/paperless/consume
+    env_file: .env
     environment:
       PAPERLESS_REDIS: redis://broker:6379
 

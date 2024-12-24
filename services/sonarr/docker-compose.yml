@@ -9,8 +9,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /home/jake/services/sonarr/config:/config
-      - /mnt/usb1/Plex/Series:/tv
-      - /home/jake/downloads:/downloads
+      - /mnt/usb2/Plex/Series:/tv
+      - ~/storage/qbittorrent/downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped

@@ -1,0 +1,16 @@
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    hostname: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ~/storage/lidarr/config:/config
+      - /mnt/usb2/Plex/Music:/music
+      - ~/storage/qbittorrent/downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
