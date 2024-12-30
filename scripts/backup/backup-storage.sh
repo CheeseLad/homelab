@@ -6,9 +6,11 @@ FOLDERS_TO_ARCHIVE=(
   "/home/jake/storage/hedgedoc"
   "/home/jake/storage/homepage"
   "/home/jake/storage/jackett"
+  "/home/jake/storage/lidarr"
   "/home/jake/storage/overseerr"
   "/home/jake/storage/photoprism"
-  "/home/jake/storage/qbittorrent"
+  "/home/jake/storage/pterodactyl"
+  "/home/jake/storage/qbittorrent/config"
   "/home/jake/storage/vaultwarden"
 )
 

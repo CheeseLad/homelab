@@ -1,6 +1,6 @@
 services:
   mysql-database:
-    image: mysql:8.3.0
+    image: mysql:8.4.0
     hostname: mysql-database
     container_name: mysql-database
     restart: unless-stopped
