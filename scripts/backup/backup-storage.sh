@@ -7,6 +7,7 @@ FOLDERS_TO_ARCHIVE=(
   "/home/jake/storage/homepage"
   "/home/jake/storage/jackett"
   "/home/jake/storage/lidarr"
+  "/home/jake/storage/jellyfin"
   "/home/jake/storage/overseerr"
   "/home/jake/storage/photoprism"
   "/home/jake/storage/pterodactyl"
