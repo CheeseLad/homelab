@@ -1,0 +1,18 @@
+services:
+  wiki-dcu-lol:
+    image: mediawiki
+    hostname: wiki-dcu-lol
+    container_name: wiki-dcu-lol
+    restart: unless-stopped
+    volumes:
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - database:/var/www/data
+      - ./images:/var/www/html/images
+      - ./deleted_files:/var/www/html/deleted_files
+    ports:
+      - 8084:80
+      
+volumes:
+  database:
+  images:
+  deleted_files:

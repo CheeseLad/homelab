@@ -1,0 +1,8 @@
+services:
+  ishita-portfolio:
+    image: ghcr.io/wizzdom/ishita-portfolio:latest
+    container_name: ishita-portfolio
+    hostname: ishita-portfolio
+    restart: unless-stopped
+    ports:
+      - 8023:80
