@@ -29,3 +29,7 @@ backup-wordpress-dcumps.sh
 backup-database.sh
 stuff/vpn-configs
 services/pterodactyl
+*.sqlite
+*.zip
+*.php
+services/wiki-dcu-lol/images

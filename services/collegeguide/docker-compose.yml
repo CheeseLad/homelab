@@ -1,0 +1,61 @@
+services:
+  collegeguide-backend:
+    container_name: collegeguide-backend
+    hostname: collegeguide-backend
+    image: ghcr.io/cheeselad/collegeguide-backend:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - AI_API_KEY=$AI_API_KEY
+      - SECRET_KEY=$SECRET_KEY
+      - DEBUG=$DEBUG
+      - EMAIL_HOST_PASSWORD=$EMAIL_HOST_PASSWORD
+      - BASE_URL=$BASE_URL
+    depends_on:
+      - collegeguide-redis
+    network_mode: "host"
+    command: >
+      sh -c "(python manage.py runserver 0.0.0.0:8000 &) &&
+      celery -A collegeguide beat"
+
+  collegeguide-frontend:
+    container_name: collegeguide-frontend
+    hostname: collegeguide-frontend
+    image: ghcr.io/cheeselad/collegeguide-frontend:latest
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=$VITE_API_URL
+    depends_on:
+      - collegeguide-backend
+    networks:
+      - collegeguide-network
+
+  collegeguide-blog:
+    container_name: collegeguide-blog
+    hostname: collegeguide-blog
+    image: ghcr.io/cheeselad/collegeguide-blog:latest
+    ports:
+      - "1313:80"
+    networks:
+      - collegeguide-network
+
+  collegeguide-redis:
+    image: redis:6.2-alpine
+    container_name: collegeguide-redis
+    hostname: collegeguide-redis
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes: 
+      - cache:/data
+    network_mode: "host"
+
+volumes:
+  cache:
+    driver: local
+
+networks:
+  collegeguide-network:
+    driver: bridge
