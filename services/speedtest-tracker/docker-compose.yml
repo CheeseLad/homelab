@@ -5,7 +5,7 @@ services:
         ports:
             - 8765:80
         volumes:
-            - /home/jake/services/speedtest-tracker/config:/config
+            - ~/storage/speedtest-tracker:/config
         environment:
             - PUID=1000
             - PGID=1000

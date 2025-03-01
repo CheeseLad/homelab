@@ -10,7 +10,7 @@ services:
     volumes:
       - ~/storage/radarr:/config
       - /mnt/usb2/Plex/Movies:/movies
-      - /home/jake/downloads:/downloads
+      - ~/downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped

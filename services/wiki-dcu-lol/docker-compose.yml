@@ -5,10 +5,10 @@ services:
     container_name: wiki-dcu-lol
     restart: unless-stopped
     volumes:
-      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - ~/storage/wiki-dcu-lol/LocalSettings.php:/var/www/html/LocalSettings.php
       - database:/var/www/data
-      - ./images:/var/www/html/images
-      - ./deleted_files:/var/www/html/deleted_files
+      - ~/storage/wiki-dcu-lol/images:/var/www/html/images
+      - ~/storage/wiki-dcu-lol/deleted_files:/var/www/html/deleted_files
     ports:
       - 8084:80
       

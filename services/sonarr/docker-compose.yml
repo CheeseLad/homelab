@@ -8,9 +8,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /home/jake/services/sonarr/config:/config
+      - ~/storage/sonarr:/config
       - /mnt/usb2/Plex/Series:/tv
-      - ~/storage/qbittorrent/downloads:/downloads
+      - ~/downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped

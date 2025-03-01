@@ -4,7 +4,7 @@ services:
     image: tautulli/tautulli
     restart: unless-stopped
     volumes:
-      - /home/jake/services/tautulli/config:/config
+      - ~/storage/tautulli:/config
     environment:
       - PUID=${PUID}
       - PGID=${PGID}

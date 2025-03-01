@@ -14,4 +14,4 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ~/storage/jackett:/config/Jackett
-      - ~/storage/qbittorrent/downloads:/downloads
+      - ~/downloads:/downloads

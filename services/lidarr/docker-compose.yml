@@ -10,7 +10,7 @@ services:
     volumes:
       - ~/storage/lidarr/config:/config
       - /mnt/usb2/Plex/Music:/music
-      - ~/storage/qbittorrent/downloads:/downloads
+      - ~/downloads:/downloads
     ports:
       - 8686:8686
     restart: unless-stopped

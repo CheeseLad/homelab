@@ -1,0 +1,16 @@
+.cache/**
+.docker/**
+.dotnet/**
+.local/**
+.vscode-server/**
+services/photoprism/database/**
+services/photoprism/storage/**
+storage/speedtest-tracker/config/www/**
+storage/plex/**
+storage/immich/library/**
+storage/immich/postgres/**
+storage/qbittorrent/downloads/**
+backups/lidarr/**
+backups/cable-anarchy-minecraft/**
+backups/photoprism/database/**
+
