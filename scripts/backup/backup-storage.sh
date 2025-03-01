@@ -3,17 +3,28 @@
 FOLDERS_TO_ARCHIVE=(
   "/home/jake/storage/cable-anarchy-minecraft"
   "/home/jake/storage/cloudflared"
+  "/home/jake/storage/ddclient"
   "/home/jake/storage/hedgedoc"
   "/home/jake/storage/homepage"
+  "/home/jake/storage/immich"
   "/home/jake/storage/jackett"
-  "/home/jake/storage/lidarr"
   "/home/jake/storage/jellyfin"
+  "/home/jake/storage/lidarr"
   "/home/jake/storage/overseerr"
+  "/home/jake/storage/paperless-ngx"
   "/home/jake/storage/photoprism"
   "/home/jake/storage/pterodactyl"
-  "/home/jake/storage/qbittorrent/config"
+  "/home/jake/storage/qbittorrent"
+  "/home/jake/storage/transmission"
   "/home/jake/storage/vaultwarden"
 )
+
+declare -A EXCLUDE_PATHS
+EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata"
+EXCLUDE_PATHS["/home/jake/storage/qbittorrent"]="--exclude=downloads"
+EXCLUDE_PATHS["/home/jake/storage/hedgedoc"]="--exclude=uploads"
+EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=config/MediaCover"
+EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres"
 
 BACKUP_DIR="/home/jake/backups"
 
@@ -29,13 +40,15 @@ archive_folder() {
     return 1
   fi
 
-  mkdir -p "$BACKUP_FOLDER"
-  if [ $? -ne 0 ]; then
-    echo "Error: Failed to create backup directory '$BACKUP_FOLDER'."
-    return 1
+  mkdir -p "$BACKUP_FOLDER" || { echo "Error: Failed to create backup directory '$BACKUP_FOLDER'."; return 1; }
+
+  EXCLUDE_OPTIONS=()
+  if [[ -n "${EXCLUDE_PATHS[$FOLDER_TO_ARCHIVE]}" ]]; then
+    EXCLUDE_OPTIONS=(${EXCLUDE_PATHS[$FOLDER_TO_ARCHIVE]})
   fi
 
-  tar -czf "${BACKUP_FOLDER}/${ARCHIVE_NAME}" -C "$(dirname "$FOLDER_TO_ARCHIVE")" "$(basename "$FOLDER_TO_ARCHIVE")"
+  tar -czf "${BACKUP_FOLDER}/${ARCHIVE_NAME}" "${EXCLUDE_OPTIONS[@]}" -C "$(dirname "$FOLDER_TO_ARCHIVE")" "$(basename "$FOLDER_TO_ARCHIVE")"
+
   if [ $? -ne 0 ]; then
     echo "Error: Failed to create archive for '$FOLDER_TO_ARCHIVE'."
     return 1
@@ -49,10 +62,6 @@ cleanup_old_backups() {
   BACKUP_FOLDER="${BACKUP_DIR}/${FOLDER_NAME}"
 
   find "$BACKUP_FOLDER" -type f -name "*.tar.gz" -mtime +7 -exec rm -f {} \;
-  if [ $? -ne 0 ]; then
-    echo "Error: Failed to clean up old backups in '$BACKUP_FOLDER'."
-    return 1
-  fi
 
   echo "Old backups in '$BACKUP_FOLDER' have been cleaned up."
 }
