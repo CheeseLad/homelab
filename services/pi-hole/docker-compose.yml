@@ -13,8 +13,8 @@ services:
       PIHOLE_DNS_: '8.8.8.8;8.8.4.4'
       WEBTHEME: 'default-darker'
     volumes:
-      - './etc-pihole:/etc/pihole'
-      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+      - '~/storage/pi-hole/etc-pihole:/etc/pihole'
+      - '~/storage/pi-hole/etc-dnsmasq.d:/etc/dnsmasq.d'
     cap_add:
       - NET_ADMIN
     restart: unless-stopped

@@ -10,21 +10,28 @@ FOLDERS_TO_ARCHIVE=(
   "/home/jake/storage/jackett"
   "/home/jake/storage/jellyfin"
   "/home/jake/storage/lidarr"
+  "/home/jake/storage/listmonk"
   "/home/jake/storage/overseerr"
   "/home/jake/storage/paperless-ngx"
   "/home/jake/storage/photoprism"
+  "/home/jake/storage/pi-hole"
+  "/home/jake/storage/portainer"
   "/home/jake/storage/pterodactyl"
+  "/home/jake/storage/radarr"
   "/home/jake/storage/qbittorrent"
   "/home/jake/storage/transmission"
   "/home/jake/storage/vaultwarden"
 )
+
+#  "/home/jake/storage/plex"
 
 declare -A EXCLUDE_PATHS
 EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata"
 EXCLUDE_PATHS["/home/jake/storage/qbittorrent"]="--exclude=downloads"
 EXCLUDE_PATHS["/home/jake/storage/hedgedoc"]="--exclude=uploads"
 EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=config/MediaCover"
-EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres"
+EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres --exclude=backups --exclude=thumbs"
+#EXCLUDE_PATHS["/home/jake/storage/plex"]="--exclude='Library/Application Support/Plex Media Server/Metadata' --exclude='Library/Application Support/Plex Media Server/Drivers'"
 
 BACKUP_DIR="/home/jake/backups"
 
