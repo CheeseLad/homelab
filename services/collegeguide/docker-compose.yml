@@ -3,6 +3,7 @@ services:
     container_name: collegeguide-backend
     hostname: collegeguide-backend
     image: ghcr.io/cheeselad/collegeguide-backend:latest
+    restart: unless-stopped
     ports:
       - "8000:8000"
     environment:
@@ -22,6 +23,7 @@ services:
     container_name: collegeguide-frontend
     hostname: collegeguide-frontend
     image: ghcr.io/cheeselad/collegeguide-frontend:latest
+    restart: unless-stopped
     ports:
       - "5173:5173"
     environment:
@@ -35,6 +37,7 @@ services:
     container_name: collegeguide-blog
     hostname: collegeguide-blog
     image: ghcr.io/cheeselad/collegeguide-blog:latest
+    restart: unless-stopped
     ports:
       - "1313:80"
     networks:
@@ -44,7 +47,7 @@ services:
     image: redis:6.2-alpine
     container_name: collegeguide-redis
     hostname: collegeguide-redis
-    restart: always
+    restart: unless-stopped
     ports:
       - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning
