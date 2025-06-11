@@ -4,6 +4,8 @@ services:
     container_name: homepage
     hostname: homepage
     restart: unless-stopped
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS=home.jakefarrell.ie,local.jakefarrell.ie
     volumes:
       - ~/storage/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock

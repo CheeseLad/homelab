@@ -13,4 +13,5 @@ storage/qbittorrent/downloads/**
 backups/lidarr/**
 backups/cable-anarchy-minecraft/**
 backups/photoprism/database/**
-
+storage/transmission/downloads/**
+downloads/**
