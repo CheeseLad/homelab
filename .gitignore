@@ -6,6 +6,7 @@
 .rest-client
 .ssh
 .vscode-server
+.cursor-server
 backups
 configs
 downloads

@@ -2,7 +2,6 @@ services:
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
-    hostname: radarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -13,4 +12,10 @@ services:
       - ~/downloads:/downloads
     ports:
       - 7878:7878
+    networks:
+      - cheeselab
     restart: unless-stopped
+
+networks:
+  cheeselab:
+    external: true

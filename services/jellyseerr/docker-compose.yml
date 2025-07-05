@@ -1,0 +1,19 @@
+services:
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/Dublin
+      - PORT=5057 #optional
+    ports:
+      - 5057:5057
+    volumes:
+      - ~/storage/jellyseerr/config:/app/config
+    networks:
+      - cheeselab
+    restart: unless-stopped
+
+networks:
+  cheeselab:
+    external: true

@@ -1,7 +1,6 @@
 services:
   jackett:
     container_name: jackett
-    hostname: jackett
     image: linuxserver/jackett
     restart: unless-stopped
     environment:
@@ -15,3 +14,9 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ~/storage/jackett:/config/Jackett
       - ~/downloads:/downloads
+    networks:
+      - cheeselab
+
+networks:
+  cheeselab:
+    external: true

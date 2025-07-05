@@ -2,8 +2,8 @@ services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
-    hostname: homepage
     restart: unless-stopped
+    user: "1000:1000"
     environment:
       - HOMEPAGE_ALLOWED_HOSTS=home.jakefarrell.ie,local.jakefarrell.ie
     volumes:

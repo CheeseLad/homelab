@@ -21,4 +21,10 @@ services:
       - 9091:9091
       - 51413:51413
       - 51413:51413/udp
+    networks:
+      - cheeselab
     restart: unless-stopped
+
+networks:
+  cheeselab:
+    external: true

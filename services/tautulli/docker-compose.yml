@@ -11,3 +11,9 @@ services:
       - TZ=${TZ}
     ports:
       - 8181:8181
+    networks:
+      - cheeselab
+
+networks:
+  cheeselab:
+    external: true

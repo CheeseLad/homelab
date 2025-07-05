@@ -9,4 +9,10 @@ services:
       - TZ=Europe/Dublin
     ports:
       - 8191:8191
+    networks:
+      - cheeselab
     restart: unless-stopped
+
+networks:
+  cheeselab:
+    external: true

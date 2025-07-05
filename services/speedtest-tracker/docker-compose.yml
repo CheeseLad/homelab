@@ -1,19 +1,19 @@
 services:
     speedtest-tracker:
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        restart: unless-stopped
         container_name: speedtest-tracker
-        image: henrywhitaker3/speedtest-tracker
         ports:
             - 8765:80
-        volumes:
-            - ~/storage/speedtest-tracker:/config
         environment:
             - PUID=1000
             - PGID=1000
-            - TZ=Etc/UTC
-            - OOKLA_EULA_GDPR=true
-        logging:
-            driver: "json-file"
-            options:
-                max-file: "10"
-                max-size: "200k"
-        restart: unless-stopped
+            - APP_KEY=${APP_KEY}
+            - DB_CONNECTION=sqlite
+            - APP_NAME="CheeseLab Speedtest Tracker"
+            - APP_URL="https://speedtest.jakefarrell.ie"
+            - ASSET_URL="https://speedtest.jakefarrell.ie"
+            - APP_TIMEZONE=Europe/Dublin
+            - SPEEDTEST_SCHEDULE="0 * * * *"
+        volumes:
+            - ~/storage/speedtest-tracker/new-config:/config

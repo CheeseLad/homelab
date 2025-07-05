@@ -2,7 +2,6 @@ services:
   overseerr:
     image: sctx/overseerr:latest
     container_name: overseerr
-    hostname: overseerr
     environment:
       - LOG_LEVEL=debug
       - TZ=Europe/Dublin
@@ -11,4 +10,10 @@ services:
       - 5055:5055
     volumes:
       - ~/storage/overseerr:/app/config
+    networks:
+      - cheeselab
     restart: unless-stopped
+
+networks:
+  cheeselab:
+    external: true
