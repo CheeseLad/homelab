@@ -17,5 +17,6 @@ stuff
 *.conf
 *.log
 *.wget-hsts
-services/photoprism/database
 scripts/backup/backup-database.sh
+*.kube
+*.minikube

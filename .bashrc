@@ -122,6 +122,7 @@ alias e='einstein'
 alias n='nano'
 alias h='history'
 alias dcu='docker compose up -d'
+alias dcp='docker compose pull && docker compose up -d'
 alias dsp='docker system prune'
 alias dcd='docker compose down'
 alias dps='docker ps'
@@ -131,3 +132,4 @@ alias cupdate='sudo apt-get update && sudo apt-get upgrade'
 alias docker-compose='docker compose'
 # Created by `pipx` on 2024-01-27 13:28:12
 export PATH="$PATH:/home/jake/.local/bin"
+source <(kubectl completion bash)

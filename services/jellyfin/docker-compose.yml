@@ -10,7 +10,7 @@ services:
       - JELLYFIN_PublishedServerUrl=http://192.168.1.2
     volumes:
       - ~/storage/jellyfin:/config
-      - /mnt/usb1/Plex:/media
+      - /mnt/storage-hdd/Media:/media
       - /mnt/usb2/Plex:/media2
     ports:
       - 8096:8096

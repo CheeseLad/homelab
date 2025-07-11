@@ -2,7 +2,7 @@ services:
   collegeguide-backend:
     container_name: collegeguide-backend
     hostname: collegeguide-backend
-    image: ghcr.io/cheeselad/collegeguide-backend:latest
+    image: ghcr.io/cheeselad/collegeguide-gh-backend:latest
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -22,7 +22,7 @@ services:
   collegeguide-frontend:
     container_name: collegeguide-frontend
     hostname: collegeguide-frontend
-    image: ghcr.io/cheeselad/collegeguide-frontend:latest
+    image: ghcr.io/cheeselad/collegeguide-gh-frontend:latest
     restart: unless-stopped
     ports:
       - "5173:5173"
@@ -36,7 +36,7 @@ services:
   collegeguide-blog:
     container_name: collegeguide-blog
     hostname: collegeguide-blog
-    image: ghcr.io/cheeselad/collegeguide-blog:latest
+    image: ghcr.io/cheeselad/collegeguide-gh-blog:latest
     restart: unless-stopped
     ports:
       - "1313:80"

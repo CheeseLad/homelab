@@ -17,7 +17,7 @@ services:
       - /dev/dri:/dev/dri
     volumes:
       - ~/storage/plex:/config
-      - /mnt/usb1/Plex:/media
+      - /mnt/storage-hdd/Media:/media
       - /mnt/usb2/Plex:/media2
       - /dev/shm:/transcode
     environment:
