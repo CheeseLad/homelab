@@ -27,7 +27,7 @@ services:
     ports:
       - "5173:5173"
     environment:
-      - VITE_API_URL=$VITE_API_URL
+      - VITE_API_URL=https://collegeguide-api.jakefarrell.ie
     depends_on:
       - collegeguide-backend
     networks:
@@ -40,6 +40,8 @@ services:
     restart: unless-stopped
     ports:
       - "1313:80"
+    environment:
+      - APP_URL="https://collegeguide-blog.jakefarrell.ie"
     networks:
       - collegeguide-network
 

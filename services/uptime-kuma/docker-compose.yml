@@ -5,6 +5,8 @@ services:
     volumes:
       - ~/storage/uptime-kuma:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - APP_URL="https://status.jakefarrell.ie"
     ports:
       - 3003:3001
     restart: unless-stopped

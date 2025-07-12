@@ -5,9 +5,10 @@ services:
     volumes:
       - redisdata:/data
 
-  webserver:
+  paperless-ngx:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
     restart: unless-stopped
+    container_name: paperless-ngx
     depends_on:
       - broker
     ports:

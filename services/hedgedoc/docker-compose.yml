@@ -16,7 +16,7 @@ services:
     container_name: hedgedoc
     environment:
       - CMD_DB_URL=$CMD_DB_URL
-      - CMD_DOMAIN=$CMD_DOMAIN
+      - CMD_DOMAIN=md.jakefarrell.ie
       - CMD_IMAGE_UPLOAD_TYPE=filesystem
       - CMD_IMAGE_UPLOAD_PATH=/hedgedoc/public/uploads
       - CMD_EMAIL=true

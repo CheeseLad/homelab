@@ -13,15 +13,12 @@ services:
       - UNTURNED_SERVER_DATABASE_NAME=${UNTURNED_SERVER_DATABASE_NAME}
       - UNTURNED_API_KEY=${UNTURNED_API_KEY}
       - SERVER_ID=${SERVER_ID}
+      - APP_URL="https://api.cablenetwork.xyz"
+    networks:
+      - cheeselab
     ports:
       - "6023:5000"
 
-  cablenetwork-website-frontend:
-    image: ghcr.io/cheeselad/cablenetwork-website-frontend:latest
-    container_name: cablenetwork-website-frontend
-    hostname: cablenetwork-website-frontend
-    restart: unless-stopped
-    depends_on:
-      - cablenetwork-website-backend
-    ports:
-      - "6024:80"
+networks:
+  cheeselab:
+    external: true
