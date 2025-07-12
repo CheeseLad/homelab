@@ -18,5 +18,6 @@ stuff
 *.log
 *.wget-hsts
 scripts/backup/backup-database.sh
+scripts/smart-monitor-multi.sh
 *.kube
 *.minikube

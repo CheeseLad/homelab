@@ -26,11 +26,13 @@ FOLDERS_TO_ARCHIVE=(
 #  "/home/jake/storage/plex"
 
 declare -A EXCLUDE_PATHS
-EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata"
+EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata --exclude=cache"
 EXCLUDE_PATHS["/home/jake/storage/qbittorrent"]="--exclude=downloads"
 EXCLUDE_PATHS["/home/jake/storage/hedgedoc"]="--exclude=uploads"
 EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=config/MediaCover"
+EXCLUDE_PATHS["/home/jake/storage/radarr"]="--exclude=MediaCover"
 EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres --exclude=backups --exclude=thumbs"
+EXCLUDE_PATHS["/home/jake/storage/photoprism"]="--exclude=storage"
 #EXCLUDE_PATHS["/home/jake/storage/plex"]="--exclude='Library/Application Support/Plex Media Server/Metadata' --exclude='Library/Application Support/Plex Media Server/Drivers'"
 
 BACKUP_DIR="/home/jake/backups"
