@@ -18,7 +18,6 @@ services:
     volumes:
       - ~/storage/plex:/config
       - /mnt/storage-hdd/Media:/media
-      - /mnt/usb2/Plex:/media2
       - /dev/shm:/transcode
     environment:
       TZ: $TZ

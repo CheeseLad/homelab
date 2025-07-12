@@ -11,7 +11,6 @@ services:
     volumes:
       - ~/storage/jellyfin:/config
       - /mnt/storage-hdd/Media:/media
-      - /mnt/usb2/Plex:/media2
     ports:
       - 8096:8096
       - 8920:8920
