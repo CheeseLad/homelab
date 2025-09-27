@@ -14,6 +14,8 @@ storage/qbittorrent/downloads/**
 backups/lidarr/**
 backups/cable-anarchy-minecraft/**
 backups/photoprism/database/**
+backups/immich/database/**
+backups/uptime-kuma/**
 storage/transmission/downloads/**
 downloads/**
 storage/cable-anarchy-minecraft/**
@@ -45,3 +47,6 @@ storage/fotosoc-wordpress/**
 storage/grav-mps/**
 storage/wordpress-dcumps/**
 storage/wordpress-dcumps-import/**
+backups/jellyfin/**
+backups/radarr/**
+backups/overseerr/**

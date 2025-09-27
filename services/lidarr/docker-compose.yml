@@ -9,7 +9,7 @@ services:
     volumes:
       - ~/storage/lidarr/config:/config
       - /mnt/storage-hdd/Media/Music:/music
-      - ~/downloads:/downloads
+      - /mnt/storage-hdd/Downloads:/downloads
     ports:
       - 8686:8686
     networks:

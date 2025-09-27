@@ -9,7 +9,7 @@ services:
     volumes:
       - ~/storage/radarr:/config
       - /mnt/storage-hdd/Media/Movies:/movies
-      - ~/downloads:/downloads
+      - /mnt/storage-hdd/Downloads:/downloads
     ports:
       - 7878:7878
     networks:

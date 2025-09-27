@@ -9,7 +9,7 @@ services:
     volumes:
       - ~/storage/sonarr:/config
       - /mnt/storage-hdd/Media/Series:/tv
-      - ~/downloads:/downloads
+      - /mnt/storage-hdd/Downloads:/downloads
     ports:
       - 8989:8989
     networks:

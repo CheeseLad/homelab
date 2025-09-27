@@ -13,7 +13,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ~/storage/jackett:/config/Jackett
-      - ~/downloads:/downloads
+      - /mnt/storage-hdd/Downloads:/downloads
     networks:
       - cheeselab
 

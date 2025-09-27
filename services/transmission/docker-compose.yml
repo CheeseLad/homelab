@@ -15,7 +15,7 @@ services:
       - HOST_WHITELIST= #optional
     volumes:
       - ~/storage/transmission/config:/config
-      - ~/downloads:/downloads
+      - /mnt/storage-hdd/Downloads:/downloads
       - ~/storage/transmission/watch:/watch
     ports:
       - 9091:9091
