@@ -47,8 +47,9 @@ EXCLUDE_PATHS["/home/jake/storage/sonarr"]="--exclude=MediaCover"
 EXCLUDE_PATHS["/home/jake/storage/grav-mps"]="--exclude=config/www/backup"
 #EXCLUDE_PATHS["/home/jake/storage/plex"]="--exclude='Library/Application Support/Plex Media Server/Metadata' --exclude='Library/Application Support/Plex Media Server/Drivers'"
 
-BACKUP_DIR="/home/jake/backups"
-SECONDARY_BACKUP_DIR="/mnt/usb1/CheeseLab/backups"
+#BACKUP_DIR="/home/jake/backups"
+BACKUP_DIR="/mnt/usb1/Jake/Device Automated Backups/CheeseLab/Internal Storage/home/jake/backups"
+#SECONDARY_BACKUP_DIR="/mnt/usb1/CheeseLab/backups"
 
 archive_folder() {
   FOLDER_TO_ARCHIVE="$1"
