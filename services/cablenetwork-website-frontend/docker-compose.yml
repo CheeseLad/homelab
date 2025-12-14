@@ -1,0 +1,14 @@
+services:
+  cablenetwork-website-frontend:
+    image: ghcr.io/cheeselad/cablenetwork-website-frontend:latest
+    container_name: cablenetwork-website-frontend
+    hostname: cablenetwork-website-frontend
+    restart: unless-stopped
+    networks:
+      - cheeselab
+    ports:
+      - "6022:80"
+
+networks:
+  cheeselab:
+    external: true

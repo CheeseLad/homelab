@@ -13,7 +13,7 @@ services:
       - UNTURNED_SERVER_DATABASE_NAME=${UNTURNED_SERVER_DATABASE_NAME}
       - UNTURNED_API_KEY=${UNTURNED_API_KEY}
       - SERVER_ID=${SERVER_ID}
-      - APP_URL="https://api.cablenetwork.xyz"
+      - APP_URL="https://cablenetwork-api.jakefarrell.ie"
     networks:
       - cheeselab
     ports:

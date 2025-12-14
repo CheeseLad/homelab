@@ -1,0 +1,14 @@
+services:
+    speedtest-local:
+       restart: unless-stopped
+       container_name: openspeedtest
+       ports:
+            - '3604:3000'
+            - '3605:3001'
+       image: openspeedtest/latest
+       networks:
+        - cheeselab
+
+networks:
+  cheeselab:
+    external: true
