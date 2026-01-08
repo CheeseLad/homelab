@@ -1,5 +1,5 @@
 services:
-    speedtest-local:
+    openspeedtest:
        restart: unless-stopped
        container_name: openspeedtest
        ports:

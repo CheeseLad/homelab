@@ -8,6 +8,7 @@ services:
     environment:
       # Optional: put your config options customization here. Examples:
       ND_LOGLEVEL: info
+      ND_ENABLESUBSONIC: true
     volumes:
       - ~/storage/navidrome:/data
       - /mnt/storage-hdd/Media/Music:/music:ro
