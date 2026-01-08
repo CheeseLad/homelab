@@ -1,0 +1,20 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - "4533:4533"
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_LOGLEVEL: info
+    volumes:
+      - ~/storage/navidrome:/data
+      - /mnt/storage-hdd/Media/Music:/music:ro
+    networks:
+      - cheeselab
+    restart: unless-stopped
+
+networks:
+  cheeselab:
+    external: true

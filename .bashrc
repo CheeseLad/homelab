@@ -132,4 +132,3 @@ alias cupdate='sudo apt-get update && sudo apt-get upgrade'
 alias docker-compose='docker compose'
 # Created by `pipx` on 2024-01-27 13:28:12
 export PATH="$PATH:/home/jake/.local/bin"
-source <(kubectl completion bash)

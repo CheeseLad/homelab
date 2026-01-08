@@ -51,3 +51,4 @@ backups/jellyfin/**
 backups/radarr/**
 backups/overseerr/**
 storage/windows/**
+storage/macos/**

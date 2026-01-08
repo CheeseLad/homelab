@@ -2,7 +2,7 @@
 
 # Config
 MEDIA_DIR="/mnt/storage-hdd/Media"
-EXTENSIONS=("mp4" "mkv" "avi" "mov" "flv")
+EXTENSIONS=("mp4" "mkv" "avi" "mov" "flv" "mp3" "flac" "wav" "aac" "ogg")
 REPORT_DIR="/home/jake/backups/media"
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 OUTPUT_FILE="${REPORT_DIR}/media_${TIMESTAMP}.txt"
@@ -63,7 +63,26 @@ for top_folder in "$MEDIA_DIR"/*/; do
         done
 
     elif [ "$top_folder_name" == "Music" ]; then
-        continue
+        for artist_dir in "$top_folder"*/; do
+            [ -d "$artist_dir" ] || continue
+            artist_name=$(basename "$artist_dir")
+            if should_skip_dir "$artist_dir"; then continue; fi
+            echo "  $artist_name/" >> "$OUTPUT_FILE"
+
+            for album_dir in "$artist_dir"*/; do
+                [ -d "$album_dir" ] || continue
+                album_name=$(basename "$album_dir")
+                if should_skip_dir "$album_dir"; then continue; fi
+                echo "    $album_name/" >> "$OUTPUT_FILE"
+
+                while IFS= read -r -d '' file; do
+                    if should_skip_dir "$(dirname "$file")"; then continue; fi
+                    echo "      $(basename "$file")" >> "$OUTPUT_FILE"
+                done < <(find "$album_dir" -maxdepth 1 -type f \( $EXT_FILTERS \) -print0 | sort -z)
+
+                echo >> "$OUTPUT_FILE"
+            done
+        done
     else
         for movie_dir in "$top_folder"*/; do
             [ -d "$movie_dir" ] || continue
