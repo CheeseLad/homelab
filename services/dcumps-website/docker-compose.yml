@@ -1,0 +1,31 @@
+services:
+  dcumps-website:
+    image: ghcr.io/cheeselad/dcumps-website-django:latest
+    container_name: dcumps-website
+    restart: unless-stopped
+    ports:
+      - "3020:8000"
+    environment:
+      # Django Settings
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - ADMIN_ENABLED=${ADMIN_ENABLED}
+      
+      # External Data Configuration
+      - YOUTUBE_CHANNEL_ID=${YOUTUBE_CHANNEL_ID}
+      - CLUBS_SOCS_API_URL=${CLUBS_SOCS_API_URL}
+      - THECOLLEGEVIEW_BASE_URL=${THECOLLEGEVIEW_BASE_URL}
+      
+      # Google Sheets IDs
+      - LINKTREE_MAIN_SHEET_ID=${LINKTREE_MAIN_SHEET_ID}
+      - LINKTREE_TV_SHEET_ID=${LINKTREE_TV_SHEET_ID}
+      - LINKTREE_FM_SHEET_ID=${LINKTREE_FM_SHEET_ID}
+      - LINKTREE_TCV_SHEET_ID=${LINKTREE_TCV_SHEET_ID}
+      - LINKTREE_DEV_SHEET_ID=${LINKTREE_DEV_SHEET_ID}
+    networks:
+      - cheeselab
+
+networks:
+  cheeselab:
+    external: true

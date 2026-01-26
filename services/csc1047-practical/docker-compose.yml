@@ -1,0 +1,7 @@
+services:
+  csc1047-practical:
+    image: ghcr.io/cheeselad/csc1047-practical:latest
+    container_name: csc1047-practical
+    restart: unless-stopped
+    ports:
+      - "3018:80"
