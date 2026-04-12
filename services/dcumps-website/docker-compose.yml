@@ -23,6 +23,10 @@ services:
       - LINKTREE_FM_SHEET_ID=${LINKTREE_FM_SHEET_ID}
       - LINKTREE_TCV_SHEET_ID=${LINKTREE_TCV_SHEET_ID}
       - LINKTREE_DEV_SHEET_ID=${LINKTREE_DEV_SHEET_ID}
+
+      # WordPress API Configuration
+      - WP_API_USERNAME=${WP_API_USERNAME}
+      - WP_API_PASSWORD=${WP_API_PASSWORD}
     networks:
       - cheeselab
 

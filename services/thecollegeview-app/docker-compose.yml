@@ -1,0 +1,15 @@
+services:
+  thecollegeview-app:
+    image: nginx:latest
+    container_name: thecollegeview-app
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html
+    ports:
+      - "3023:80"
+    networks:
+      - cheeselab
+
+networks:
+  cheeselab:
+    external: true

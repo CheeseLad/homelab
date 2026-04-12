@@ -1,5 +1,6 @@
 .cache
 .config
+.copilot
 .cursor-server
 .docker
 .dotnet
@@ -16,3 +17,5 @@ unused-services
 *.env
 *.conf
 *.log
+html
+*.sqlite3

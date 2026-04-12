@@ -3,7 +3,7 @@
 # Config
 MEDIA_DIR="/mnt/storage-hdd/Media"
 EXTENSIONS=("mp4" "mkv" "avi" "mov" "flv" "mp3" "flac" "wav" "aac" "ogg")
-REPORT_DIR="/home/jake/backups/media"
+REPORT_DIR="/mnt/usb1/Jake/Device Automated Backups/CheeseLab/Internal Storage/home/jake/backups/media"
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 OUTPUT_FILE="${REPORT_DIR}/media_${TIMESTAMP}.txt"
 
