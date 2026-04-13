@@ -8,7 +8,6 @@
 .ssh
 .vscode-server
 backups
-scripts/backup/backup-database.sh
 scripts/smart-monitor-multi.sh
 storage
 stuff
