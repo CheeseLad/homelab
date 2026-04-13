@@ -19,3 +19,4 @@ unused-services
 *.log
 html
 *.sqlite3
+unused-storage

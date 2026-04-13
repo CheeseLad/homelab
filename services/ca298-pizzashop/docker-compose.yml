@@ -4,7 +4,7 @@ services:
     container_name: ca298-pizzashop
     restart: unless-stopped
     volumes:
-      - ./db.sqlite3:/app/pizzashop/db.sqlite3
+      - ~/storage/ca298-pizzashop/db.sqlite3:/app/pizzashop/db.sqlite3
     ports:
       - "3021:8000"
     networks:
