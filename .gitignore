@@ -8,14 +8,11 @@
 .ssh
 .vscode-server
 backups
-scripts/smart-monitor-multi.sh
 storage
 stuff
 unused-services
+unused-storage
 .bash_history
 *.env
-*.conf
 *.log
-html
-*.sqlite3
-unused-storage
+rclone.conf
