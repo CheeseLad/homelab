@@ -23,6 +23,7 @@ services:
       - "/mnt/usb1/Photos & Videos/Xperia XA:/usr/src/app/xperia-xa"
       - "/mnt/usb1/Photos & Videos/Jake’s iPhone 13 Pro:/usr/src/app/jakes-iphone-13-pro"
       - "/mnt/usb1/Photos & Videos/Galaxy A70:/usr/src/app/galaxy-a70"
+      - "/mnt/usb1/Photos & Videos/Game Screenshots:/usr/src/app/game-screenshots"
     env_file:
       - .env
     ports:
