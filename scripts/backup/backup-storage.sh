@@ -1,55 +1,48 @@
 #!/bin/bash
 
-FOLDERS_TO_ARCHIVE=(
-  "/home/jake/storage/cable-anarchy-minecraft"
-  "/home/jake/storage/cloudflared"
-  "/home/jake/storage/ddclient"
-  "/home/jake/storage/hedgedoc"
-  "/home/jake/storage/homepage"
-  "/home/jake/storage/immich"
-  "/home/jake/storage/jackett"
-  "/home/jake/storage/jellyfin"
-  "/home/jake/storage/lidarr"
-  "/home/jake/storage/listmonk"
-  "/home/jake/storage/overseerr"
-  "/home/jake/storage/paperless-ngx"
-  "/home/jake/storage/photoprism"
-  "/home/jake/storage/pi-hole"
-  "/home/jake/storage/portainer"
-  "/home/jake/storage/pterodactyl"
-  "/home/jake/storage/radarr"
-  "/home/jake/storage/qbittorrent"
-  "/home/jake/storage/transmission"
-  "/home/jake/storage/vaultwarden"
-  "/home/jake/storage/speedtest-tracker"
-  "/home/jake/storage/sonarr"
-  "/home/jake/storage/tautulli"
-  "/home/jake/storage/uptime-kuma"
-  "/home/jake/storage/jellyseerr"
-  "/home/jake/storage/fotosoc-wordpress"
-  "/home/jake/storage/grav-mps"
-  "/home/jake/storage/wordpress-dcumps"
-  "/home/jake/storage/wordpress-dcumps-import"
+SERVICES_DIR="/home/jake/services"
+STORAGE_DIR="/home/jake/storage"
+BACKUP_DIR="/home/jake/backups"
+#BACKUP_DIR="/mnt/usb1/Jake/Device Automated Backups/CheeseLab/Internal Storage/home/jake/backups"
+
+EXCLUDED_SERVICES=(
+  "uptime-kuma"
 )
 
-#  "/home/jake/storage/plex"
+FOLDERS_TO_ARCHIVE=()
+
+for service_path in "$SERVICES_DIR"/*; do
+  service_name=$(basename "$service_path")
+
+  # Skip if in exclude list
+  skip=false
+  for excluded in "${EXCLUDED_SERVICES[@]}"; do
+    if [[ "$service_name" == "$excluded" ]]; then
+      skip=true
+      break
+    fi
+  done
+  $skip && continue
+
+  storage_path="$STORAGE_DIR/$service_name"
+
+  # Only include if storage exists
+  if [[ -d "$storage_path" ]]; then
+    FOLDERS_TO_ARCHIVE+=("$storage_path")
+  fi
+done
 
 declare -A EXCLUDE_PATHS
-EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata --exclude=cache"
-EXCLUDE_PATHS["/home/jake/storage/qbittorrent"]="--exclude=downloads"
+EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata --exclude=cache --exclude=data/data/introskipper/chromaprints"
 EXCLUDE_PATHS["/home/jake/storage/hedgedoc"]="--exclude=uploads"
-EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=config/MediaCover"
+EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=config/MediaCover --exclude=config/Backups"
 EXCLUDE_PATHS["/home/jake/storage/radarr"]="--exclude=MediaCover"
-EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres --exclude=backups --exclude=thumbs"
-EXCLUDE_PATHS["/home/jake/storage/photoprism"]="--exclude=storage --exclude=database"
-EXCLUDE_PATHS["/home/jake/storage/speedtest-tracker"]="--exclude=www/node_modules --exclude=www/vendor"
 EXCLUDE_PATHS["/home/jake/storage/sonarr"]="--exclude=MediaCover"
-EXCLUDE_PATHS["/home/jake/storage/grav-mps"]="--exclude=config/www/backup"
-#EXCLUDE_PATHS["/home/jake/storage/plex"]="--exclude='Library/Application Support/Plex Media Server/Metadata' --exclude='Library/Application Support/Plex Media Server/Drivers'"
-
-#BACKUP_DIR="/home/jake/backups"
-BACKUP_DIR="/mnt/usb1/Jake/Device Automated Backups/CheeseLab/Internal Storage/home/jake/backups"
-#SECONDARY_BACKUP_DIR="/mnt/usb1/CheeseLab/backups"
+EXCLUDE_PATHS["/home/jake/storage/tdarr"]="--exclude=transcode_cache"
+EXCLUDE_PATHS["/home/jake/storage/navidrome"]="--exclude=cache"
+EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres --exclude=backups --exclude=thumbs"
+EXCLUDE_PATHS["/home/jake/storage/speedtest-tracker"]="--exclude=www/node_modules --exclude=www/vendor"
+EXCLUDE_PATHS["/home/jake/storage/pi-hole"]="--exclude=etc-pihole/logrotate"
 
 archive_folder() {
   FOLDER_TO_ARCHIVE="$1"
