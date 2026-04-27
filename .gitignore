@@ -16,3 +16,6 @@ unused-storage
 *.env
 *.log
 rclone.conf
+projects
+.npm
+.pki
