@@ -36,7 +36,6 @@ storage/vaultwarden/**
 storage/speedtest-tracker/**
 storage/sonarr/**
 unused-storage/tautulli/**
-storage/uptime-kuma/**
 storage/jellyseerr/**
 unused-storage/fotosoc-wordpress/**
 unused-storage/grav-mps/**

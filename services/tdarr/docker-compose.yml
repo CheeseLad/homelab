@@ -33,6 +33,10 @@ services:
 
     devices:
       - /dev/dri:/dev/dri
+
+    group_add:
+      - "105" # render group
+      - "44"  # video group
     
 
 # node example
@@ -58,9 +62,9 @@ services:
       - maxLogSizeMB=10
       - pollInterval=2000
       - startPaused=false
-      - transcodegpuWorkers=1
-      - transcodecpuWorkers=2
-      - healthcheckgpuWorkers=1
+      - transcodegpuWorkers=0
+      - transcodecpuWorkers=1
+      - healthcheckgpuWorkers=0
       - healthcheckcpuWorkers=1
 
     volumes:
@@ -72,3 +76,7 @@ services:
 
     devices:
       - /dev/dri:/dev/dri
+
+    group_add:
+      - "105" # render group
+      - "44"  # video group

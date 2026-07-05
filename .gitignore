@@ -15,6 +15,7 @@ unused-storage
 .bash_history
 *.env
 *.log
+*.json
 rclone.conf
 projects
 .npm

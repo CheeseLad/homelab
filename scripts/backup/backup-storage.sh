@@ -5,9 +5,7 @@ STORAGE_DIR="/home/jake/storage"
 BACKUP_DIR="/home/jake/backups"
 #BACKUP_DIR="/mnt/usb1/Jake/Device Automated Backups/CheeseLab/Internal Storage/home/jake/backups"
 
-EXCLUDED_SERVICES=(
-  "uptime-kuma"
-)
+EXCLUDED_SERVICES=()
 
 FOLDERS_TO_ARCHIVE=()
 
