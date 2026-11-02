@@ -1,4 +1,6 @@
 # HSTS 1.0 Known Hosts database for GNU Wget.
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
-update.code.visualstudio.com	0	1	1783209376	31536000
+update.code.visualstudio.com	0	1	1793383469	31536000
+packages.microsoft.com	0	1	1792004669	31536000
+raw.githubusercontent.com	0	0	1793046867	31536000

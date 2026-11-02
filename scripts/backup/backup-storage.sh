@@ -41,6 +41,7 @@ EXCLUDE_PATHS["/home/jake/storage/navidrome"]="--exclude=cache"
 EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres --exclude=backups --exclude=thumbs"
 EXCLUDE_PATHS["/home/jake/storage/speedtest-tracker"]="--exclude=www/node_modules --exclude=www/vendor"
 EXCLUDE_PATHS["/home/jake/storage/pi-hole"]="--exclude=etc-pihole/logrotate"
+EXCLUDE_PATHS["/home/jake/storage/zipline"]="--exclude=pg_data"
 
 archive_folder() {
   FOLDER_TO_ARCHIVE="$1"

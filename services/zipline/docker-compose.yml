@@ -1,0 +1,50 @@
+services:
+  zipline-postgres:
+    image: postgres:15
+    restart: unless-stopped
+    container_name: "zipline-postgres"
+    environment:
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DB=$POSTGRES_DATABASE
+    networks:
+      - cheeselab
+    volumes:
+      - ~/storage/zipline/pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  zipline:
+    image: ghcr.io/diced/zipline:3.7.10
+    restart: unless-stopped
+    container_name: zipline
+    ports:
+      - "5000:5000"
+    networks:
+      - cheeselab
+    environment:
+      - CORE_RETURN_HTTPS=false
+      - CORE_SECRET=$CORE_SECRET
+      - CORE_HOST=0.0.0.0
+      - CORE_PORT=5000
+      - CORE_DATABASE_URL=$CORE_DATABASE_URL
+      - CORE_LOGGER=true
+    volumes:
+      - '~/storage/zipline/uploads:/zipline/uploads'
+      - '~/storage/zipline/public:/zipline/public'
+    depends_on:
+      - 'zipline-postgres'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.zipline.entrypoints=https"
+      - "traefik.http.routers.zipline.rule=Host(`i.jakefarrell.ie`)"
+
+volumes:
+  pg_data:
+
+networks:
+  cheeselab:
+    external: true

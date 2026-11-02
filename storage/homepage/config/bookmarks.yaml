@@ -1,0 +1,52 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/bookmarks
+
+- College:
+    - Loop:
+        - abbr: LO
+          href: https://loop.dcu.ie/my
+          icon: /images/loop.png
+    - DCU Mail:
+        - abbr: MA
+          href: https://mail.google.com/mail/u/1/#inbox
+          icon: gmail.png
+    - DCU Docs:
+        - abbr: DD
+          href: https://docs.google.com/document/u/1/?tgif=d
+          icon: google-docs.png
+    - DCU Drive:
+        - abbr: DR
+          href: https://drive.google.com/drive/u/1/my-drive
+          icon: google-drive.png
+    - DCU Calendar:
+        - abbr: CA
+          href: https://calendar.google.com/calendar/u/1/r?pli=1
+          icon: google-calendar.png
+
+- DCU Societies:
+    - DCU Fotosoc:
+        - abbr: FS
+          href: https://dcufotosoc.ie
+          icon: /images/dcufotosoc.png
+    - DCU Media Production Society:
+        - abbr: MP
+          href: https://dcumps.ie
+          icon: /images/dcumps-website.png
+    - The College View:
+        - abbr: TC
+          href: https://thecollegeview.ie
+          icon: /images/tcvapp.png
+- My Projects:
+    - Github (CheeseLad):
+        - abbr: GH
+          href: https://github.com/CheeseLad
+          icon: github.png
+    - Instagram:
+        - abbr: IG
+          href: https://www.instagram.com/jakefarrell2003
+          icon: instagram.png
+    - LinkedIn:
+        - abbr: LI
+          href: https://www.linkedin.com/in/jake-farrell-cs
+          icon: linkedin.png

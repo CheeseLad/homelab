@@ -26,13 +26,17 @@ CONTAINERS["hedgedoc"]="hedgedoc-database"
 COMMANDS["hedgedoc"]="pg_dump hedgedoc -U hedgedoc"
 OUTPUTS["hedgedoc"]="$BACKUP_DIR/hedgedoc/hedgedoc_postgres_$TIMESTAMP.sql"
 
-CONTAINERS["immich"]="immich_postgres"
-COMMANDS["immich"]="pg_dump immich -U postgres"
-OUTPUTS["immich"]="$BACKUP_DIR/immich/immich_postgres_$TIMESTAMP.sql"
+#CONTAINERS["immich"]="immich_postgres"
+#COMMANDS["immich"]="pg_dump immich -U postgres"
+#OUTPUTS["immich"]="$BACKUP_DIR/immich/immich_postgres_$TIMESTAMP.sql"
 
 CONTAINERS["mysql"]="mysql-database"
 COMMANDS["mysql"]="mysqldump --all-databases -u root --password='$MYSQL_ROOT_PASSWORD'"
 OUTPUTS["mysql"]="$BACKUP_DIR/mysql-database/mysql_$TIMESTAMP.sql"
+
+CONTAINERS["zipline"]="zipline-postgres"
+COMMANDS["zipline"]="pg_dump postgres -U postgres"
+OUTPUTS["zipline"]="$BACKUP_DIR/zipline/zipline_postgres_$TIMESTAMP.sql"
 
 run_backup() {
   local name="$1"

@@ -18,13 +18,16 @@ LOG_FILE="/home/jake/scripts/rclone/backup-homelab.log"
 CONFIG="/home/jake/scripts/rclone/rclone.conf"
 FILTER="/home/jake/scripts/rclone/filter.txt"
 SOURCE="/home/jake"
-DEST="DCU-GCrypt-2024:/CheeseLab/home/jake"
+DEST="Personal-GCrypt-2026:/CheeseLab/home/jake"
 
-# Remove old log
+# Remove old log and initialize so it is readable by jake while running
 rm -f "$LOG_FILE"
+touch "$LOG_FILE"
+chmod 644 "$LOG_FILE"
+chown jake:jake "$LOG_FILE" 2>/dev/null || true
 
 # Run Rclone backup
-rclone copy "$SOURCE" "$DEST" -v --config "$CONFIG" --exclude-from "$FILTER" --log-file "$LOG_FILE" --bwlimit 1.7M
+rclone sync "$SOURCE" "$DEST" -v --config "$CONFIG" --exclude-from "$FILTER" --log-file "$LOG_FILE" --bwlimit 1.7M --checkers 16 --delete-excluded --skip-links
 
 # Extract stats from log
 TRANSFERRED=$(grep -oP 'Transferred:\s+\K.*' "$LOG_FILE" | tail -1)
