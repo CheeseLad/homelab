@@ -1,6 +1,6 @@
 services:
   zipline-postgres:
-    image: postgres:15
+    image: postgres:16-alpine
     restart: unless-stopped
     container_name: "zipline-postgres"
     environment:
@@ -12,38 +12,35 @@ services:
     volumes:
       - ~/storage/zipline/pg_data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      test: ['CMD-SHELL', 'pg_isready -U $POSTGRES_USER -d $POSTGRES_DATABASE']
       interval: 10s
       timeout: 5s
       retries: 5
 
   zipline:
-    image: ghcr.io/diced/zipline:3.7.10
+    image: ghcr.io/diced/zipline:latest
     restart: unless-stopped
     container_name: zipline
     ports:
-      - "5000:5000"
+      - "5000:3000"
     networks:
       - cheeselab
     environment:
-      - CORE_RETURN_HTTPS=false
+      - DATABASE_URL=$DATABASE_URL
       - CORE_SECRET=$CORE_SECRET
-      - CORE_HOST=0.0.0.0
-      - CORE_PORT=5000
-      - CORE_DATABASE_URL=$CORE_DATABASE_URL
-      - CORE_LOGGER=true
+      - CORE_HOSTNAME=0.0.0.0
+      - CORE_PORT=3000
     volumes:
-      - '~/storage/zipline/uploads:/zipline/uploads'
-      - '~/storage/zipline/public:/zipline/public'
+      - ~/storage/zipline/uploads:/zipline/uploads
+      - ~/storage/zipline/public:/zipline/public
     depends_on:
-      - 'zipline-postgres'
+      zipline-postgres:
+        condition: service_healthy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.zipline.entrypoints=https"
       - "traefik.http.routers.zipline.rule=Host(`i.jakefarrell.ie`)"
-
-volumes:
-  pg_data:
+      - "traefik.http.services.zipline.loadbalancer.server.port=3000"
 
 networks:
   cheeselab:
