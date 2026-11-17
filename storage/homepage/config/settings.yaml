@@ -1,0 +1,30 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: {{HOMEPAGE_VAR_WEATHERAPI}}
+
+title: CheeseLab
+background: /images/background.jpg
+favicon: /images/favicon.ico
+theme: dark # or light
+color: slate
+
+layout:
+  Services (Homelab):
+    style: row
+    columns: 4
+
+  Projects (Homelab):
+    style: row
+    columns: 4
+
+  Services (VPS):
+    style: row
+    columns: 4
+
+  Projects (VPS):
+    style: row
+    columns: 4
