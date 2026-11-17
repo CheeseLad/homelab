@@ -1,0 +1,313 @@
+- Services (Homelab):
+    - Immich:
+        icon: immich.png
+        href: http://cheeselab:2283
+        siteMonitor: http://192.168.1.2:2283
+        server: cheeselab-docker
+        container: immich_server
+        widget:
+          type: immich
+          url: http://192.168.1.2:2283
+          key: {{HOMEPAGE_VAR_IMMICH}}
+          version: 2
+    - Jackett:
+        icon: jackett.png
+        href: http://cheeselab:9117
+        siteMonitor: http://192.168.1.2:9117
+        server: cheeselab-docker
+        container: jackett
+        widget:
+          type: jackett
+          url: http://192.168.1.2:9117
+          password: {{HOMEPAGE_VAR_JACKETT}}
+    - Paperless-ngx:
+        icon: paperless-ngx.png
+        href: http://cheeselab:8545
+        siteMonitor: http://192.168.1.2:8545
+        server: cheeselab-docker
+        container: paperless-ngx
+        widget:
+          type: paperlessngx
+          url: http://192.168.1.2:8545
+          key: {{HOMEPAGE_VAR_PAPERLESS_NGX}}
+    - Pi-Hole:
+        icon: pi-hole.png
+        href: http://cheeselab:3002/admin
+        siteMonitor: http://192.168.1.2:3002/admin
+        server: cheeselab-docker
+        container: pihole
+        widget:
+            type: pihole
+            url: http://192.168.1.2:3002
+            version: 6
+            key: {{HOMEPAGE_VAR_PI_HOLE}}
+    - Jellyfin:
+        icon: jellyfin.png
+        href: http://cheeselab:8096/web
+        siteMonitor: http://192.168.1.2:8096/web
+        server: cheeselab-docker
+        container: jellyfin
+        widget:
+          type: jellyfin
+          url: http://192.168.1.2:8096
+          key: {{HOMEPAGE_VAR_JELLYFIN}}
+          version: 2
+          enableBlocks: true
+          enableNowPlaying: false
+          enableUser: true
+          enableMediaControl: false
+          showEpisodeNumber: true
+          expandOneStreamToTwoRows: false
+    - Sonarr:
+        icon: sonarr.png
+        href: http://cheeselab:8989
+        siteMonitor: http://192.168.1.2:8989
+        server: cheeselab-docker
+        container: sonarr
+        widget:
+          type: sonarr
+          url: http://192.168.1.2:8989
+          key: {{HOMEPAGE_VAR_SONARR}}
+    - Radarr:
+        icon: radarr.png
+        href: http://cheeselab:7878
+        siteMonitor: http://192.168.1.2:7878
+        server: cheeselab-docker
+        container: radarr
+        widget:
+          type: radarr
+          url: http://192.168.1.2:7878
+          key: {{HOMEPAGE_VAR_RADARR}}
+    - Lidarr:
+        icon: lidarr.png
+        href: http://cheeselab:8686
+        siteMonitor: http://192.168.1.2:8686
+        server: cheeselab-docker
+        container: lidarr
+        widget:
+          type: lidarr
+          url: http://192.168.1.2:8686
+          key: {{HOMEPAGE_VAR_LIDARR}}
+    - Transmission:
+        icon: transmission.png
+        href: http://cheeselab:9091
+        siteMonitor: http://192.168.1.2:9091
+        server: cheeselab-docker
+        container: transmission
+        widget:
+            type: transmission
+            url: http://192.168.1.2:9091
+            username: jake
+            password: {{HOMEPAGE_VAR_TRANSMISSION}}
+            rpcUrl: /transmission/ # Optional. Matches the value of "rpc-url" in your Transmission's settings.json file
+    - Portainer:
+        icon: portainer.png
+        href: https://cheeselab:9443
+        siteMonitor: https://192.168.1.2:9443
+        server: cheeselab-docker
+        container: portainer
+        widget:
+          type: portainer
+          url: https://192.168.1.2:9443
+          env: 2
+          key: {{HOMEPAGE_VAR_PORTAINER}}
+    - Speedtest Tracker:
+        icon: speedtest-tracker.png
+        href: https://speedtest.jakefarrell.ie
+        siteMonitor: https://speedtest.jakefarrell.ie
+        server: cheeselab-docker
+        container: speedtest-tracker
+        widget:
+            type: speedtest
+            url: https://speedtest.jakefarrell.ie
+            version: 2
+            key: {{HOMEPAGE_VAR_SPEEDTEST_TRACKER}}
+    - Uptime Kuma:
+        icon: uptime-kuma.png
+        href: https://status.jakefarrell.ie/status/cheeselab
+        siteMonitor: https://status.jakefarrell.ie/status/cheeselab
+        server: cheeselab-docker
+        container: uptime-kuma
+        widget:
+            type: uptimekuma
+            url: https://status.jakefarrell.ie
+            slug: cheeselab
+    - Hedgedoc:
+        icon: hedgedoc.png
+        href: https://md.jakefarrell.ie
+        siteMonitor: https://md.jakefarrell.ie
+        server: cheeselab-docker
+        container: hedgedoc
+        widget:
+            type: customapi
+            url: https://md.jakefarrell.ie/status
+            refreshInterval: 10000
+            method: GET
+            mappings:
+                - field: notesCount
+                  label: Total Notes
+                  format: text
+                - field: registeredUsers
+                  label: Registered Users
+                  format: text
+    - Navidrome:
+        icon: navidrome.png
+        href: http://cheeselab:4533
+        siteMonitor: http://192.168.1.2:4533
+        server: cheeselab-docker
+        container: navidrome
+        widget:
+            type: navidrome
+            url: http://192.168.1.2:4533
+            user: cheeselab_navidrome
+            token: {{HOMEPAGE_VAR_NAVIDROME}}
+            salt: {{HOMEPAGE_VAR_NAVIDROME_SALT}}
+    - Cloudflared:
+        icon: cloudflare.png
+        server: cheeselab-docker
+        container: cloudflared
+    - Flaresolverr:
+        icon: flaresolverr.png
+        server: cheeselab-docker
+        container: flaresolverr
+    - Homepage:
+        icon: homepage.png
+        server: cheeselab-docker
+        container: homepage
+        href: https://home.jakefarrell.ie
+        siteMonitor: https://home.jakefarrell.ie
+    - MySQL Database:
+        icon: mysql.png
+        server: cheeselab-docker
+        container: mysql-database
+    - DDClient:
+        icon: ddclient.png
+        server: cheeselab-docker
+        container: ddclient
+    - Dozzle:
+        icon: dozzle.png
+        href: http://cheeselab:8087
+        siteMonitor: http://192.168.1.2:8087
+        server: cheeselab-docker
+        container: dozzle
+    - OpenSpeedTest:
+        icon: openspeedtest.png
+        href: http://cheeselab:3604
+        siteMonitor: http://192.168.1.2:3604
+        server: cheeselab-docker
+        container: openspeedtest
+    - Nyancat:
+        icon: /images/nyancat.png
+        href: https://nyancat.jakefarrell.ie
+        siteMonitor: https://nyancat.jakefarrell.ie
+
+
+- Projects (Homelab):
+    - CA298 PizzaShop:
+        icon: /images/ca298pizzashop.png
+        href: https://pizzashop.jakefarrell.ie
+        siteMonitor: https://pizzashop.jakefarrell.ie
+        server: cheeselab-docker
+        container: ca298-pizzashop
+    - CA298 React Exam:
+        icon: /images/react.png
+        href: https://reactexam.jakefarrell.ie
+        siteMonitor: https://reactexam.jakefarrell.ie
+        server: cheeselab-docker
+        container: ca298-reactexam-frontend
+    - CA298 University System:
+        icon: /images/react.png
+        server: cheeselab-docker
+        href: https://universitysystem.jakefarrell.ie
+        siteMonitor: https://universitysystem.jakefarrell.ie
+        container: ca298-universitysystem-frontend
+    - Cable Network Website:
+        icon: /images/cablenetwork.png
+        href: https://cablenetwork.jakefarrell.ie
+        siteMonitor: https://cablenetwork.jakefarrell.ie
+        server: cheeselab-docker
+        container: cablenetwork-website-frontend
+    - CollegeGuide:
+        icon: /images/collegeguide.png
+        server: cheeselab-docker
+        href: https://collegeguide.jakefarrell.ie
+        siteMonitor: https://collegeguide.jakefarrell.ie
+        container: collegeguide-frontend
+    - CSC1047 Ai Practical:
+        icon: /images/csc1047-practical.png
+        server: cheeselab-docker
+        href: https://csc1047-practical.jakefarrell.ie
+        siteMonitor: https://csc1047-practical.jakefarrell.ie
+        container: csc1047-practical
+    - DCU Media Production Society Website:
+        icon: /images/dcumps-website.png
+        server: cheeselab-docker
+        href: https://dcumps.jakefarrell.ie
+        siteMonitor: https://dcumps.jakefarrell.ie
+        container: dcumps-website
+    - The College View App:
+        icon: /images/tcvapp.png
+        server: cheeselab-docker
+        href: https://tcvapp.jakefarrell.ie
+        siteMonitor: https://tcvapp.jakefarrell.ie
+        container: tcvapp
+    - The Experiment (Discord Bot):
+        icon: /images/the-experiment.png
+        server: cheeselab-docker
+        container: the-experiment
+
+
+- Services (VPS):
+    - Portainer:
+        icon: portainer.png
+        href: https://portainer.jakefarrell.ie
+        siteMonitor: https://portainer.jakefarrell.ie
+        widget:
+          type: portainer
+          url: https://portainer.jakefarrell.ie
+          env: 2
+          key: {{HOMEPAGE_VAR_PORTAINER_VPS}}
+    - Traefik:
+        icon: traefik.png
+        href: https://traefik.jakefarrell.ie
+        siteMonitor: https://traefik.jakefarrell.ie
+        widget:
+          type: traefik
+          url: https://traefik.jakefarrell.ie
+          username: {{HOMEPAGE_VAR_TRAEFIK_USERNAME}}
+          password: {{HOMEPAGE_VAR_TRAEFIK_PASSWORD}}
+    - Plausible:
+        icon: plausible.png
+        href: https://plausible.jakefarrell.ie
+        siteMonitor: https://plausible.jakefarrell.ie
+    - Zipline:
+        icon: zipline.png
+        href: https://i.jakefarrell.ie
+        siteMonitor: https://i.jakefarrell.ie
+    - Shlink:
+        icon: shlink.png
+        href: https://shlink.jakefarrell.ie
+        siteMonitor: https://shlink.jakefarrell.ie
+    - Listmonk:
+        icon: listmonk.png
+        href: https://lm.jakefarrell.ie
+        siteMonitor: https://lm.jakefarrell.ie
+
+
+- Projects (VPS):
+    - Personal Website:
+        icon: /images/personal-website.png
+        href: https://jakefarrell.ie
+        siteMonitor: https://jakefarrell.ie
+    - Clubs & Socs API:
+        icon: /images/clubsandsocs.png
+        href: https://clubsandsocs.jakefarrell.ie
+        siteMonitor: https://clubsandsocs.jakefarrell.ie
+    - DCU Fotosoc Website:
+        icon: /images/dcufotosoc.png
+        href: https://dcufotosoc.ie
+        siteMonitor: https://dcufotosoc.ie
+    - Legacy Leaderboards:
+        icon: /images/legacy-leaderboards.png
+        href: https://legacyleaderboards.jakefarrell.ie
+        siteMonitor: https://legacyleaderboards.jakefarrell.ie
