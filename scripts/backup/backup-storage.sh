@@ -33,15 +33,15 @@ done
 declare -A EXCLUDE_PATHS
 EXCLUDE_PATHS["/home/jake/storage/jellyfin"]="--exclude=data/metadata --exclude=cache --exclude=data/data/introskipper/chromaprints"
 EXCLUDE_PATHS["/home/jake/storage/hedgedoc"]="--exclude=uploads"
-EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=config/MediaCover --exclude=config/Backups"
+EXCLUDE_PATHS["/home/jake/storage/lidarr"]="--exclude=MediaCover --exclude=Backups"
 EXCLUDE_PATHS["/home/jake/storage/radarr"]="--exclude=MediaCover"
 EXCLUDE_PATHS["/home/jake/storage/sonarr"]="--exclude=MediaCover"
 EXCLUDE_PATHS["/home/jake/storage/tdarr"]="--exclude=transcode_cache"
 EXCLUDE_PATHS["/home/jake/storage/navidrome"]="--exclude=cache"
 EXCLUDE_PATHS["/home/jake/storage/immich"]="--exclude=postgres --exclude=backups --exclude=thumbs"
-EXCLUDE_PATHS["/home/jake/storage/speedtest-tracker"]="--exclude=www/node_modules --exclude=www/vendor"
+EXCLUDE_PATHS["/home/jake/storage/speedtest-tracker"]="--exclude=www/node_modules --exclude=www/vendor --exclude=speedtest-tracker/core --exclude=speedtest-tracker/core.*"
 EXCLUDE_PATHS["/home/jake/storage/pi-hole"]="--exclude=etc-pihole/logrotate"
-EXCLUDE_PATHS["/home/jake/storage/zipline"]="--exclude=pg_data"
+EXCLUDE_PATHS["/home/jake/storage/zipline"]="--exclude=pg_data --exclude=pg_data_v3"
 
 archive_folder() {
   FOLDER_TO_ARCHIVE="$1"
